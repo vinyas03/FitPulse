@@ -169,6 +169,14 @@ h3 {
   transform: scale(0.98);
 }
 
+.toolIcon {
+  font-size: 1.4rem;
+}
+
+.textCenter {
+  text-align: center;
+}
+
 .loadingSpinnerContainer {
   position: fixed;
   top: 0;
@@ -213,3 +221,5 @@ h3 {
     font-size: 1.5rem;
   }
 }
+
+
