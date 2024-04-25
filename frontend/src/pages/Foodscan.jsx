@@ -75,7 +75,7 @@ const Foodscan = () => {
               <input
                 type="button"
                 onClick={handleSubmit}
-                className="btn btn-primary mt-5"
+                className="btn btn-primary mt-5 btn-centered"
                 value="Send"
                 disabled={!isImageSelected} // Disable the button if no image is selected
               />

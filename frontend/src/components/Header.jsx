@@ -1,5 +1,6 @@
 import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
 import { IoFastFoodOutline } from "react-icons/io5";
+import { GiWeightLiftingUp } from "react-icons/gi";
 
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -29,6 +30,11 @@ function Header() {
             <li>
               <Link to="/foodscan">
                 <IoFastFoodOutline className="toolIcon" /> Food Scanner
+              </Link>
+            </li>
+            <li>
+              <Link to="/findworkout">
+                <GiWeightLiftingUp className="toolIcon" /> Find Workout
               </Link>
             </li>
             <li>

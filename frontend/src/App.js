@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 
 import Foodscan from "./pages/Foodscan";
+import FindWorkout from "./pages/Findworkout";
 
 function App() {
   return (
@@ -18,8 +19,9 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-
+            
             <Route path="/foodscan" element={<Foodscan />} />
+            <Route path="/findworkout" element={<FindWorkout />} />
           </Routes>
         </div>
       </Router>
