@@ -1,5 +1,6 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import axios from 'axios';
 import Tesseract from 'tesseract.js';
 
@@ -8,6 +9,15 @@ const Foodscan = () => {
   const [image, setImage] = useState('');
   const [progress, setProgress] = useState(0);
   const [responseText, setResponseText] = useState('');
+
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/login');
+    }
+  }, [user, navigate]);
 
   const handleSubmit = () => {
     setIsLoading(true);

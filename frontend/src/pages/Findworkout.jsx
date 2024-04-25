@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import ExerciseForm from "../components/ExerciseForm";
 import ExerciseItem from "../components/ExerciseItem";
@@ -7,11 +7,18 @@ import Spinner from "../components/Spinner";
 //import { getGoals, reset } from "../features/goals/goalSlice";
 
 function Findworkout() {
+  const navigate = useNavigate();
 
   const { user } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/login');
+    }
+  }, [user, navigate]);
+  
   const [exercises, setResponseData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
 
   return (
     <>
@@ -20,12 +27,13 @@ function Findworkout() {
         <p>Find new workouts</p>
       </section>
 
-      <ExerciseForm setResponseData={setResponseData} setIsLoading={setIsLoading}/>
+      <ExerciseForm
+        setResponseData={setResponseData}
+        setIsLoading={setIsLoading}
+      />
 
       <section className="content">
-          {isLoading && (
-            <Spinner/>
-          )}
+        {isLoading && <Spinner />}
         {exercises.length > 0 ? (
           <div className="goals">
             {exercises.map((exercise) => (
@@ -41,4 +49,3 @@ function Findworkout() {
 }
 
 export default Findworkout;
-
