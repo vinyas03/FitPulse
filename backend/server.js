@@ -57,21 +57,20 @@ app.post("/api/scanfood", async (req, res) => {
   }
 });
 
-//get the ingredient text from frontend
+//get the muscle group text from frontend
 app.post("/api/workoutfind", async (req, res) => {
   const text = req.body.text;
   console.log(text);
 
   const options = {
     method: "GET",
-    url: "https://work-out-api1.p.rapidapi.com/search",
-    params: {
-      Muscles: text,
-      //Intensity_Level: 'expert'
-    },
+    //url: "https://work-out-api1.p.rapidapi.com/search",
+    url: "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises",
+    params: { muscle: text },
     headers: {
       "X-RapidAPI-Key": RapidAPIKey,
-      "X-RapidAPI-Host": "work-out-api1.p.rapidapi.com",
+      "X-RapidAPI-Host": "exercises-by-api-ninjas.p.rapidapi.com",
+      //"X-RapidAPI-Host": "work-out-api1.p.rapidapi.com",
     },
   };
 
