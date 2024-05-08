@@ -1,6 +1,7 @@
 import axios from 'axios'
-
-const API_URL = '/api/goals/'
+// REACT_APP_API_URL env variable for Production, otherwise for Development set up a proxy in package.json for development
+const apiUrl = process.env.REACT_APP_API_URL || '';
+const API_URL = `${apiUrl}/api/goals/`
 
 // Create new goal
 const createGoal = async (goalData, token) => {

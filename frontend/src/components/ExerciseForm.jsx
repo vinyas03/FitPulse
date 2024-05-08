@@ -3,14 +3,18 @@ import { useState } from "react";
 
 import axios from 'axios';
 
+// REACT_APP_API_URL env variable for Production, otherwise for Development set up a proxy in package.json for development
+const apiUrl = process.env.REACT_APP_API_URL || '';
+
 function ExerciseForm({ setResponseData, setIsLoading }) {
   const [text, setText] = useState("");
 
   //const dispatch = useDispatch();
+  
 
   const fetchWorkout = (text) => {
     axios
-    .post('/api/workoutfind', { text })
+    .post(`${apiUrl}/api/workoutfind`, { text })
     .then((response) => {
       setResponseData(response.data);
       setIsLoading(false);
