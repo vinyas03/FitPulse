@@ -22,6 +22,7 @@ function Header() {
       <div className="logo ">
         <Link to="/">
           <h2>FitPulse</h2>
+          <img src="logo.png" alt="FitPulse logo"/>
         </Link>
       </div>
       <ul>
