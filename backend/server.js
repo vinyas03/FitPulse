@@ -6,10 +6,23 @@ const { errorHandler } = require("./middleware/errorMiddleware");
 const connectDB = require("./config/db");
 const port = process.env.PORT || 5000;
 const axios = require("axios");
+const cors = require("cors");
 
 connectDB();
 
 const app = express();
+
+const FRONTEND_URL = process.env.FRONTEND_URL || "localhost:3000";
+//CORS setup
+const corsOptions = {
+  origin: FRONTEND_URL, // Your frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+  allowedHeaders: ["Content-Type", "Authorization"], // Allowed HTTP headers
+  optionsSuccessStatus: 200, // For legacy browser support
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // Handle preflight requests for all routes
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
